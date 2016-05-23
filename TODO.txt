@@ -1,0 +1,8 @@
+1. Testing abstract classes
+
+ - test should be generated for abstract class
+ 
+ 2. Mock used by other mock field initializer
+ 
+ 3. code formatters 
+ 
