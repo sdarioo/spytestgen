@@ -4,5 +4,7 @@
  
  2. Mock used by other mock field initializer
  
- 3. code formatters 
+ 3. Code formatters
+ 
+ 4. Properties-based configuration 
  
