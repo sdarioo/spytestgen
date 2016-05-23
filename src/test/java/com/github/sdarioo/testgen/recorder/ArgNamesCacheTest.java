@@ -50,6 +50,18 @@ public class ArgNamesCacheTest
         assertEquals("arg0", names[0]);
     }
     
+    @Test
+    public void cannotIntrospectInterfaceDoubleArgNames() throws Throwable
+    {
+        ArgNamesCache.clear();
+        
+        Method method = getClass().getDeclaredMethod("foo2", double.class, long.class);
+        String[] names = ArgNamesCache.getArgNames(method, true);
+        assertNotNull(names);
+        assertEquals("d1", names[0]);
+        assertEquals("l2", names[1]);
+    }
+    
     
     private static interface IProvider
     {
@@ -58,4 +70,5 @@ public class ArgNamesCacheTest
     
     private static void foo(String xyz) {}
     private static void foo1(int x, int y) {}
+    private static void foo2(double d1, long l2) { int x = 0; System.out.println(x); }
 }

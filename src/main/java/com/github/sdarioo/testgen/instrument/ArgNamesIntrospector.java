@@ -50,8 +50,9 @@ public class ArgNamesIntrospector
     {
         private final Type _type;
         private final Method _method;
-        private final boolean _isStatic;
+        
         private final String[] _argNames;
+        private final int[] _argIndexes;
         
         public ArgNamesMethodVisitor(MethodVisitor visitor,
                 Type type, int access, String name, String desc) 
@@ -60,8 +61,17 @@ public class ArgNamesIntrospector
             
             _type = type;
             _method = new Method(name, desc);
-            _isStatic = (access & Opcodes.ACC_STATIC) != 0;
-            _argNames = new String[_method.getArgumentTypes().length];
+            
+            Type[] argTypes = _method.getArgumentTypes();
+            boolean isStatic = (access & Opcodes.ACC_STATIC) != 0;
+            
+			_argNames = new String[argTypes.length];
+			_argIndexes = new int[argTypes.length];
+			int index = isStatic ? 0 : 1; 
+			for (int i = 0; i < argTypes.length; i++) {
+				_argIndexes[i] = index;
+				index += argTypes[i].getSize(); 
+			}
         }
         
         @Override
@@ -70,9 +80,11 @@ public class ArgNamesIntrospector
         {
             super.visitLocalVariable(name, desc, signature, start, end, index);
 
-            int argIndex = _isStatic ? index : index - 1;
-            if ((argIndex >= 0) && (argIndex < _argNames.length)) {
-                _argNames[argIndex] = name;
+            for (int i = 0; i < _argIndexes.length; i++) {
+            	if (_argIndexes[i] == index) {
+            		_argNames[i] = name;
+            		break;
+            	}
             }
         }
         
