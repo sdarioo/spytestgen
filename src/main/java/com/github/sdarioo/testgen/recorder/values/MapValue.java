@@ -83,7 +83,7 @@ public class MapValue
 
     @SuppressWarnings("nls")
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         if (TypeUtil.containsTypeVariables(targetType)) {
             targetType = TypeUtil.getRawType(targetType);
@@ -140,9 +140,9 @@ public class MapValue
             }
             sb.append(asPair.getName());
             sb.append('(');
-            sb.append(entry.getKey().toSouceCode(keyType, builder));
+            sb.append(entry.getKey().toSourceCode(keyType, builder));
             sb.append(", "); //$NON-NLS-1$
-            sb.append(entry.getValue().toSouceCode(valType, builder));
+            sb.append(entry.getValue().toSourceCode(valType, builder));
             sb.append(')');
         }
         return sb.toString();

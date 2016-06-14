@@ -29,9 +29,9 @@ public class UnknownValue
     }
 
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
-        return IValue.NULL.toSouceCode(targetType, builder);
+        return IValue.NULL.toSourceCode(targetType, builder);
     }
 
     @Override

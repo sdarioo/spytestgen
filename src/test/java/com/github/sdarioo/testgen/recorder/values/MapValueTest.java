@@ -13,7 +13,6 @@ import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
 import com.github.sdarioo.testgen.generator.source.TestMethod;
-import com.github.sdarioo.testgen.recorder.values.MapValue;
 
 public class MapValueTest
 {
@@ -86,7 +85,7 @@ public class MapValueTest
     private void testMap(MapValue p, Type targetType, String sourceCode, String expectedSignature)
     {
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        assertEquals(sourceCode, p.toSouceCode(targetType, builder));
+        assertEquals(sourceCode, p.toSourceCode(targetType, builder));
         
         List<TestMethod> helperMethods = builder.getHelperMethods();
         assertEquals(2, helperMethods.size());

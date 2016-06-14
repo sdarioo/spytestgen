@@ -20,7 +20,6 @@ import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
 import com.github.sdarioo.testgen.generator.source.TestMethod;
-import com.github.sdarioo.testgen.recorder.values.SetValue;
 
 public class SetValueTest 
 {
@@ -40,12 +39,12 @@ public class SetValueTest
         TestSuiteBuilder builder = new TestSuiteBuilder();
         
         SetValue p = new SetValue(new HashSet<String>());
-        assertEquals("Collections.emptySet()", p.toSouceCode(Set.class, builder));
+        assertEquals("Collections.emptySet()", p.toSourceCode(Set.class, builder));
         
         Method m = getClass().getMethod("foo", Set.class);
         p = new SetValue(Collections.emptySet());
         assertEquals("Collections.<String>emptySet()",
-                p.toSouceCode(m.getGenericParameterTypes()[0], new TestSuiteBuilder()));
+                p.toSourceCode(m.getGenericParameterTypes()[0], new TestSuiteBuilder()));
     }
     
     @Test
@@ -91,7 +90,7 @@ public class SetValueTest
     private void testSet(SetValue p, Type targetType, String sourceCode, String helperSignature)
     {
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        assertEquals(sourceCode, p.toSouceCode(targetType, builder));
+        assertEquals(sourceCode, p.toSourceCode(targetType, builder));
         
         List<TestMethod> helperMethods = builder.getHelperMethods();
         assertEquals(1, helperMethods.size());

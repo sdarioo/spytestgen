@@ -7,7 +7,6 @@ import java.io.Serializable;
 import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
-import com.github.sdarioo.testgen.recorder.values.SerializableValue;
 
 public class SerializableValueTest 
 {
@@ -24,7 +23,7 @@ public class SerializableValueTest
     {
         SerializableValue p = new SerializableValue(new Inner1("x"));
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        assertEquals("deserialize(\"res/SerializableValueTest.Inner1\")", p.toSouceCode(Inner1.class, builder));
+        assertEquals("deserialize(\"res/SerializableValueTest.Inner1\")", p.toSourceCode(Inner1.class, builder));
     }
     
     

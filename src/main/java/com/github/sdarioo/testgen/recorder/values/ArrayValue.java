@@ -35,7 +35,7 @@ public class ArrayValue
     }
     
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         Class<?> componentType = getComponentType(targetType);
         return fmt(TEMPLATE, 

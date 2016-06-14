@@ -31,7 +31,7 @@ public class ClassValue
     }
 
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         String simpeName = builder.getTypeName(_clazz);
         return fmt(fmt("{0}.class", simpeName)); //$NON-NLS-1$

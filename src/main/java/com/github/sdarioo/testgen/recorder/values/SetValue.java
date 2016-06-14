@@ -32,7 +32,7 @@ public class SetValue
     
     @SuppressWarnings("nls")
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         Type elementType = getElementType(targetType);
         String elements = getElementsSourceCode(elementType, builder);

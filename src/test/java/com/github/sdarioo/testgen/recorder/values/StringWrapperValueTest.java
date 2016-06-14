@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
-import com.github.sdarioo.testgen.recorder.values.ValuesFactory;
-import com.github.sdarioo.testgen.recorder.values.StringWrapperValue;
 
 public class StringWrapperValueTest 
 {
@@ -39,8 +37,8 @@ public class StringWrapperValueTest
         StringWrapperValue p2 = new StringWrapperValue(Wrapper2.fromString("x"), "fromString");
         TestSuiteBuilder builder = new TestSuiteBuilder();
         
-        assertEquals("StringWrapperValueTest.Wrapper3.valueOf(\"x\")", p1.toSouceCode(Wrapper3.class, builder));
-        assertEquals("StringWrapperValueTest.Wrapper2.fromString(\"x\")", p2.toSouceCode(Wrapper2.class, builder));
+        assertEquals("StringWrapperValueTest.Wrapper3.valueOf(\"x\")", p1.toSourceCode(Wrapper3.class, builder));
+        assertEquals("StringWrapperValueTest.Wrapper2.fromString(\"x\")", p2.toSourceCode(Wrapper2.class, builder));
     }
     
     public static class Wrapper1

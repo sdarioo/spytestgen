@@ -29,7 +29,7 @@ public interface IValue
      * @return source code text used by source code generator. May be null if
      * parameter is not valid {{@link #isValid(StringBuilder)} 
      */
-    String toSouceCode(Type targetType, TestSuiteBuilder builder);
+    String toSourceCode(Type targetType, TestSuiteBuilder builder);
     
     /**
      * @return recorded value type, may be null if recorded null value
@@ -47,14 +47,14 @@ public interface IValue
     /** Special value that represents result of void return methods */
     public static final IValue VOID = new IValue() {
         public boolean isSupported(Type targetType, Collection<String> errors) { return true; };
-        public String toSouceCode(Type targetType, TestSuiteBuilder builder) { return null; };
+        public String toSourceCode(Type targetType, TestSuiteBuilder builder) { return null; };
         public Class<?> getRecordedType() { return Void.class; };
     };
     
     /** Special value that represents null object */
     public static final IValue NULL = new IValue() { 
         public boolean isSupported(Type targetType, Collection<String> errors) { return true; };
-        public String toSouceCode(Type targetType, TestSuiteBuilder builder) { return "null"; }; //$NON-NLS-1$
+        public String toSourceCode(Type targetType, TestSuiteBuilder builder) { return "null"; }; //$NON-NLS-1$
         public Class<?> getRecordedType() { return null; };
     };
 

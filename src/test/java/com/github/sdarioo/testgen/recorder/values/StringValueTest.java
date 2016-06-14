@@ -14,7 +14,6 @@ import org.junit.Test;
 import com.github.sdarioo.testgen.Configuration;
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
 import com.github.sdarioo.testgen.generator.source.TestClass;
-import com.github.sdarioo.testgen.recorder.values.StringValue;
 
 public class StringValueTest 
 {
@@ -23,7 +22,7 @@ public class StringValueTest
     public void testSourceCode()
     {
         StringValue v = new StringValue("");
-        assertEquals("\"\"", v.toSouceCode(String.class, new TestSuiteBuilder()));
+        assertEquals("\"\"", v.toSourceCode(String.class, new TestSuiteBuilder()));
     }
     
     @SuppressWarnings("nls")
@@ -31,10 +30,10 @@ public class StringValueTest
     public void shouldEscapeText()
     {
         StringValue p = new StringValue("c:\\win\\path");
-        assertEquals("\"c:\\\\win\\\\path\"", p.toSouceCode(String.class, new TestSuiteBuilder()));
+        assertEquals("\"c:\\\\win\\\\path\"", p.toSourceCode(String.class, new TestSuiteBuilder()));
         
         p = new StringValue("line1\n\rline2");
-        assertEquals("\"line1\\n\\rline2\"", p.toSouceCode(String.class, new TestSuiteBuilder()));
+        assertEquals("\"line1\\n\\rline2\"", p.toSourceCode(String.class, new TestSuiteBuilder()));
     }
     
     @Test
@@ -57,7 +56,7 @@ public class StringValueTest
         }
         StringValue p = new StringValue(sb.toString());
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        String code = p.toSouceCode(String.class, builder);
+        String code = p.toSourceCode(String.class, builder);
         assertTrue(code.length() < maxStringLength);
         
         TestClass test = builder.buildTestClass();

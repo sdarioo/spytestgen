@@ -30,7 +30,7 @@ public class PrimitiveValue
     }
         
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         return _sourceCode;
     }

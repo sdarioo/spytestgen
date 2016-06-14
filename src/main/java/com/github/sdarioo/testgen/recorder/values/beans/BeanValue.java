@@ -71,7 +71,7 @@ public class BeanValue
 
     @SuppressWarnings("nls")
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < _fields.size(); i++) {
@@ -79,7 +79,7 @@ public class BeanValue
                 sb.append(", ");
             }
             Type fieldType = getFieldType(_fields.get(i), targetType);
-            sb.append(_values.get(i).toSouceCode(fieldType, builder));
+            sb.append(_values.get(i).toSourceCode(fieldType, builder));
         }
         
         String factoryMethodName = getFactoryMethodName(builder);

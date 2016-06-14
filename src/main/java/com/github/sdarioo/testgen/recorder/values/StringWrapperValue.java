@@ -33,12 +33,12 @@ public class StringWrapperValue
     }
 
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder)
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         Class<?> clazz = getRecordedType();
         
         String typeName = builder.getTypeName(clazz);
-        String str = _stringParam.toSouceCode(String.class, builder);
+        String str = _stringParam.toSourceCode(String.class, builder);
         
         
         return fmt("{0}.{1}({2})", typeName, _factoryMethod, str); //$NON-NLS-1$

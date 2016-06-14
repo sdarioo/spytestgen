@@ -82,7 +82,7 @@ public abstract class CollectionValue
             if (sb.length() > 0) {
                 sb.append(", "); //$NON-NLS-1$
             }
-            sb.append(param.toSouceCode(elementTargetType, builder));
+            sb.append(param.toSourceCode(elementTargetType, builder));
         }
         return sb.toString();
     }

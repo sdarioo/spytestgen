@@ -12,8 +12,6 @@ import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
 import com.github.sdarioo.testgen.generator.source.TestMethod;
-import com.github.sdarioo.testgen.recorder.values.beans.BeanFactory;
-import com.github.sdarioo.testgen.recorder.values.beans.BeanValue;
 
 public class BeanValueTest 
 {
@@ -38,9 +36,9 @@ public class BeanValueTest
         BeanValue p3 = new BeanValue(new Bean3(), BeanFactory.getInstance().getBean(Bean3.class));
         
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        assertEquals("newBean1(0, 0)", p1.toSouceCode(Bean1.class, builder));
-        assertEquals("newBean2(newBean1(0, 0))", p2.toSouceCode(Bean2.class, builder));
-        assertEquals("newBean3(0)", p3.toSouceCode(Bean3.class, builder));
+        assertEquals("newBean1(0, 0)", p1.toSourceCode(Bean1.class, builder));
+        assertEquals("newBean2(newBean1(0, 0))", p2.toSourceCode(Bean2.class, builder));
+        assertEquals("newBean3(0)", p3.toSourceCode(Bean3.class, builder));
     }
     
     @Test
@@ -102,8 +100,8 @@ public class BeanValueTest
         assertFalse(p1.equals(p2));
         
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        assertEquals("newPair(1, 2)", p1.toSouceCode(m1.getGenericParameterTypes()[0], builder));
-        assertEquals("newPair(\"x\", \"y\")", p2.toSouceCode(m2.getGenericParameterTypes()[0], builder));
+        assertEquals("newPair(1, 2)", p1.toSourceCode(m1.getGenericParameterTypes()[0], builder));
+        assertEquals("newPair(\"x\", \"y\")", p2.toSourceCode(m2.getGenericParameterTypes()[0], builder));
         
         assertEquals(1, builder.getHelperMethods().size());
     }
@@ -121,7 +119,7 @@ public class BeanValueTest
     private void testBeanParam(BeanValue p, Type targetType, String sourceCode, String... expectedLines)
     {
         TestSuiteBuilder builder = new TestSuiteBuilder();
-        assertEquals(sourceCode, p.toSouceCode(targetType, builder));
+        assertEquals(sourceCode, p.toSourceCode(targetType, builder));
         
         List<TestMethod> helperMethods = builder.getHelperMethods();
         assertEquals(1, helperMethods.size());

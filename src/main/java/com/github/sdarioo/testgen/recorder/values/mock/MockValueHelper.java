@@ -92,7 +92,7 @@ public class MockValueHelper
                 Type[] argTypes = method.getGenericParameterTypes();
                 Type resultType = method.getGenericReturnType();
                 args.addAll(toSourceCode(call.args(), argTypes, _builder));
-                args.add(call.getResult().toSouceCode(resultType, _builder));    
+                args.add(call.getResult().toSourceCode(resultType, _builder));
             }
         }
         return fmt("{0}({1})", factoryMethod.getName(), StringUtil.join(args, ", "));
@@ -136,7 +136,7 @@ public class MockValueHelper
             } else {
                 List<String> args = toSourceCode(call.args(), argTypes, _builder);
                 String whenArg = StringUtil.join(args, ", ");
-                String thenArg = call.getResult().toSouceCode(returnType, _builder);
+                String thenArg = call.getResult().toSourceCode(returnType, _builder);
                  
                 whenStmt = stub(method.getName(), whenArg, thenArg, returnType);
             }
@@ -168,7 +168,7 @@ public class MockValueHelper
     {
         List<String> result = new ArrayList<String>();
         for (int i = 0; i < types.length; i++) {
-            result.add(values.get(i).toSouceCode(types[i], builder));
+            result.add(values.get(i).toSourceCode(types[i], builder));
         }
         return result;
     }

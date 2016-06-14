@@ -76,7 +76,7 @@ public class JUnitParamsGenerator
             
             for (int i = 0; i < callArgs.size(); i++) {
                 Type type = getTypeWithoutVariables(paramTypes[i], paramGenericTypes[i]);
-                callArgsCode.add(callArgs.get(i).toSouceCode(type, builder));
+                callArgsCode.add(callArgs.get(i).toSourceCode(type, builder));
             }
             // Tested method invocation - should throw exception
             List<String> body = getCall(targetClass, method, toArray(callArgsCode), null, builder);
@@ -163,12 +163,12 @@ public class JUnitParamsGenerator
             List<String> callArgsCode = new ArrayList<String>();
             for (int i = 0; i < callArgs.size(); i++) {
                 Type type = getTypeWithoutVariables(paramTypes[i], paramGenericTypes[i]);
-                callArgsCode.add(callArgs.get(i).toSouceCode(type, builder));
+                callArgsCode.add(callArgs.get(i).toSourceCode(type, builder));
             }
             
             if (hasReturn(method)) {
                 Type type = getTypeWithoutVariables(method.getReturnType(), method.getGenericReturnType());
-                callArgsCode.add(call.getResult() != null ? call.getResult().toSouceCode(type, builder) : "null"); //$NON-NLS-1$
+                callArgsCode.add(call.getResult() != null ? call.getResult().toSourceCode(type, builder) : "null"); //$NON-NLS-1$
             }
             stmt.append(fmt("new Object[]'{' {0} '}'", join(toArray(callArgsCode)))); //$NON-NLS-1$
         }

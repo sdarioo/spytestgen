@@ -14,7 +14,6 @@ import java.util.Properties;
 import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
-import com.github.sdarioo.testgen.recorder.values.PropertiesValue;
 
 public class PropertiesValueTest 
 {
@@ -27,7 +26,7 @@ public class PropertiesValueTest
         
         PropertiesValue param = new PropertiesValue(p);
         
-        String text = param.toSouceCode(Properties.class, new TestSuiteBuilder());
+        String text = param.toSourceCode(Properties.class, new TestSuiteBuilder());
         
         assertEquals("asProps(asPair(\"key1\", \"value1\"))", text);
     }

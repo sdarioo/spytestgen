@@ -42,7 +42,7 @@ public class StringValue
     
     @SuppressWarnings("nls")
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         int maxLength = Configuration.getDefault().getMaxStringLength();
         if (_value.length() <= maxLength) {

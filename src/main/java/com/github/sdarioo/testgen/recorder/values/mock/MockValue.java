@@ -69,7 +69,7 @@ public class MockValue
     }
 
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         MockValueHelper helper = new MockValueHelper(getHandler(), builder);
         return helper.toSouceCode();

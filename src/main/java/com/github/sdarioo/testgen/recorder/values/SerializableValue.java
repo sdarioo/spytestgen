@@ -33,7 +33,7 @@ public class SerializableValue
     
     @SuppressWarnings("nls")
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         builder.addImport("java.io.*");
         MethodTemplate template = getFactoryMethodTemplate(targetType, builder);

@@ -17,8 +17,6 @@ import org.junit.Test;
 
 import com.github.sdarioo.testgen.generator.TestSuiteBuilder;
 import com.github.sdarioo.testgen.generator.source.TestMethod;
-import com.github.sdarioo.testgen.recorder.values.mock.MockValue;
-import com.github.sdarioo.testgen.recorder.values.mock.ProxyFactory;
 
 public class MockValueTest
 {
@@ -61,7 +59,7 @@ public class MockValueTest
         TestSuiteBuilder builder = new TestSuiteBuilder();
         
         MockValue param = new MockValue(proxy);
-        String src = param.toSouceCode(IServiceProvider.class, builder);
+        String src = param.toSourceCode(IServiceProvider.class, builder);
         assertEquals("newIServiceProviderMock()", src);
         
         verifyHelperMethod(builder, "newIServiceMock", new String[] {
@@ -100,7 +98,7 @@ public class MockValueTest
         boolean isSupported = param.isSupported(IServiceProvider.class, new HashSet<String>());
         assertTrue(isSupported);
         
-        String src = param.toSouceCode(IServiceProvider.class, builder);
+        String src = param.toSourceCode(IServiceProvider.class, builder);
         
         assertEquals("newIServiceProviderMock(Arrays.<MockValueTest.IService>asList(newIServiceMock(\"xxx\", 2), newIServiceMock(\"xxx\", 4)))", src);
         
@@ -135,7 +133,7 @@ public class MockValueTest
         boolean isSupported = param.isSupported(IServiceProvider.class, new HashSet<String>());
         assertTrue(isSupported);
         
-        String src = param.toSouceCode(IServiceProvider.class, builder);
+        String src = param.toSourceCode(IServiceProvider.class, builder);
         assertEquals("newIServiceProviderMock(Arrays.asList(newIServiceMock(), newIServiceMock()))", src);
         
         verifyHelperMethod(builder, "newIServiceProviderMock", new String[] {
@@ -166,7 +164,7 @@ public class MockValueTest
         boolean isSupported = param.isSupported(collectorType, new HashSet<String>());
         assertTrue(isSupported);
         
-        String src = param.toSouceCode(IServiceProvider.class, builder);
+        String src = param.toSourceCode(IServiceProvider.class, builder);
         assertEquals("newICollectorMock(\"str\", 0)", src);
         
         verifyHelperMethod(builder, "newICollectorMock", new String[] {
@@ -198,7 +196,7 @@ public class MockValueTest
         boolean isSupported = param.isSupported(collectorType, new HashSet<String>());
         assertTrue(isSupported);
         
-        String src = param.toSouceCode(IServiceProvider.class, builder);
+        String src = param.toSourceCode(IServiceProvider.class, builder);
         assertEquals("newICollectorMock()", src);
         
         verifyHelperMethod(builder, "newICollectorMock", new String[] {
@@ -234,7 +232,7 @@ public class MockValueTest
         TestSuiteBuilder builder = new TestSuiteBuilder();
         MockValue param = new MockValue(serviceProxy);
         
-        String src = param.toSouceCode(IService.class, builder);
+        String src = param.toSourceCode(IService.class, builder);
         assertEquals("ISERVICE", src);
         
         verifyHelperMethod(builder, "newIServiceMock", new String[] {
@@ -263,7 +261,7 @@ public class MockValueTest
         assertTrue(param.isSupported(IType.class, new HashSet<String>()));
         assertTrue(param.hashCode() > 0);
         
-        String src = param.toSouceCode(IType.class, builder);
+        String src = param.toSourceCode(IType.class, builder);
         assertEquals("ITYPE", src);
         
         verifyHelperMethod(builder, "newITypeMock", new String[] {

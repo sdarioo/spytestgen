@@ -23,7 +23,7 @@ public class EnumValue
     }
 
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         String enumClass = builder.getTypeName(getRecordedType());
         return enumClass + '.' + _name;

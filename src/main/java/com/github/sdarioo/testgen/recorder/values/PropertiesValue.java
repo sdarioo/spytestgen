@@ -38,7 +38,7 @@ public class PropertiesValue
     
     @SuppressWarnings("nls")
     @Override
-    public String toSouceCode(Type targetType, TestSuiteBuilder builder) 
+    public String toSourceCode(Type targetType, TestSuiteBuilder builder)
     {
         builder.addImport(Properties.class.getName());
         
