@@ -8,3 +8,5 @@
  
  4. Properties-based configuration 
  
+ 5. Pull-request test (second change).
+ 
